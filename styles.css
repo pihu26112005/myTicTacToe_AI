@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #7b68ee, #6a5acd, #836fff, #7b68ee);
+    animation: gradientAnimation 10s ease infinite;
+    z-index: -1;
+  }
+  
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+  
+  .game {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 320px; /* Increased width */
+    margin: auto; /* Centering the game */
+  }
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 90px); /* Increased box size */
+    grid-gap: 15px; /* Increased gap between boxes */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .cell {
+    width: 90px; /* Increased box size */
+    height: 90px; /* Increased box size */
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.7);
+    border-radius: 10px; /* Rounded corners */
+    position: relative;
+    transition: background-color 0.3s; /* Transition effect */
+  }
+  
+  .cell:hover {
+    background-color: #dcdcdc; /* Darker color on hover */
+  }
+  
+  .cell:hover::after {
+    content: '';
+    position: absolute;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    top: -5px;
+    left: -5px;
+    border-radius: 15px; /* Rounded corners on hover */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  }
+  
+  .reset-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .turn-label {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles for the win message popup and New Game button */
+  
+  .popup {
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .dimmed-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black color */
+    z-index: 2; /* Below pop-up, above game elements */
+  }
+  .win-popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .new-game-btn {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  /* Remaining existing styles */
+  
